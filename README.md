@@ -1,6 +1,6 @@
 # UBX over UDP Wireshark Plugin
 
-This plugin dissects [UBX protocol](https://www.u-blox.com/en/docs/UBX-18010854) packets carried over UDP port **26423**. It delegates full UBX frame parsing to Wireshark's built-in `ubx` dissector, so all UBX message types (NAV-PVT, NAV-SAT, RXM-RAWX, etc.) are fully decoded.
+This plugin dissects [UBX protocol](https://www.u-blox.com/en/docs/UBX-18010854) packets carried over UDP port **26423**. It delegates UBX frame parsing to Wireshark's built-in `ubx` dissector for frames that are defined. Undefined frames are parsed within `packet-ubx-ext.c`.
 
 ## Installation
 
@@ -66,9 +66,7 @@ set(CUSTOM_PLUGIN_SRC_DIR
 From your build directory (e.g. `wireshark-build/`):
 
 ```sh
-cmake -G "Visual Studio 17 2022" -A x64 \
-    -DPython3_EXECUTABLE="C:/Users/<user>/.pyenv/pyenv-win/versions/3.12.8/python.exe" \
-    ../wireshark
+cmake -G "Visual Studio 17 2022" -A x64 ../wireshark
 ```
 
 > If Python is on your `PATH` and not managed by pyenv, you can omit `-DPython3_EXECUTABLE`.

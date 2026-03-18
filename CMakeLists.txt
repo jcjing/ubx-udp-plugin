@@ -12,6 +12,7 @@ set_module_info(ubx-udp 1 0 0 0)
 
 set(DISSECTOR_SRC
   packet-ubx-udp.c
+  packet-ubx-ext.c
 )
 
 set(PLUGIN_FILES
